@@ -1,0 +1,24 @@
+/* Add this to index.css */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Note: These styles below are optional if you want additional Tailwind utility classes,
+   but your GlobalStyle.js will handle the basic defaults */
+
+@layer components {
+  .btn-primary {
+    @apply bg-accent text-light py-3 px-8 rounded-full shadow-md
+      hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1;
+  }
+  
+  .section-title {
+    @apply font-main text-3xl md:text-4xl text-dark mb-4 text-center;
+  }
+  
+  .section-subtitle {
+    @apply text-dark/80 text-center max-w-2xl mx-auto mb-10;
+  }
+}

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#bf9ba8" />
+    <meta
+      name="description"
+      content="Niki's Atelier - Luxury nail salon and spa"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <!-- Google Fonts - Elegant, serene, luxurious -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Raleway:wght@200;300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Custom styling -->
+    <style>
+      :root {
+        /* Refined color palette - soft, luxurious boho pink tones */
+        --color-primary: #c4a4ae; /* Muted dusty rose */
+        --color-secondary: #f4eeef; /* Barely-there blush */
+        --color-accent: #d9bfc7; /* Soft mauve pink */
+        --color-light: #fdfbfc; /* Almost white with warmth */
+        --color-dark: #4a3f43; /* Deep warm charcoal */
+        --color-mid: #8b7377; /* Medium mauve for subtle text */
+        --color-white: #ffffff; /* Pure white */
+        --color-overlay: rgba(253, 251, 252, 0.95); /* Light overlay */
+
+        /* Aliases for styled components */
+        --primary: #c4a4ae;
+        --secondary: #f4eeef;
+        --accent: #d9bfc7;
+        --light: #fdfbfc;
+        --dark: #4a3f43;
+        --white: #ffffff;
+
+        /* Refined Fonts */
+        --font-primary: "Raleway", -apple-system, BlinkMacSystemFont, sans-serif;
+        --font-display: "Cormorant Garamond", Georgia, serif;
+
+        /* Spacing - generous for breathing room */
+        --spacing-xs: 0.5rem;
+        --spacing-sm: 1rem;
+        --spacing-md: 2rem;
+        --spacing-lg: 4rem;
+        --spacing-xl: 6rem;
+        --spacing-xxl: 8rem;
+
+        /* Border radius - subtle */
+        --radius-sm: 3px;
+        --radius-md: 6px;
+        --radius-lg: 10px;
+
+        /* Shadows - extremely subtle for elegance */
+        --shadow-soft: 0 2px 12px rgba(74, 63, 67, 0.04);
+        --shadow-medium: 0 4px 20px rgba(74, 63, 67, 0.06);
+        --shadow-hover: 0 8px 30px rgba(74, 63, 67, 0.08);
+      }
+
+      /* Base Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: var(--font-primary);
+        background-color: var(--color-light);
+        color: var(--color-dark);
+        margin: 0;
+        padding: 0;
+        line-height: 1.8;
+        font-weight: 300;
+        font-size: 17px;
+        letter-spacing: 0.01em;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      /* Typography - refined and spacious */
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: var(--font-display);
+        font-weight: 400;
+        line-height: 1.4;
+        letter-spacing: 0.02em;
+        margin-bottom: var(--spacing-sm);
+        color: var(--color-dark);
+      }
+
+      h1 {
+        font-size: 3.8rem;
+        font-weight: 300;
+        letter-spacing: 0.03em;
+        line-height: 1.2;
+      }
+
+      h2 {
+        font-size: 2.8rem;
+        font-weight: 300;
+        letter-spacing: 0.025em;
+      }
+
+      h3 {
+        font-size: 1.8rem;
+        font-weight: 400;
+      }
+
+      h4 {
+        font-size: 1.3rem;
+        font-weight: 400;
+      }
+
+      p {
+        margin-bottom: var(--spacing-sm);
+        color: var(--color-mid);
+        line-height: 1.9;
+      }
+
+      /* Layout */
+      .container {
+        width: 90%;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 var(--spacing-md);
+      }
+
+      section {
+        padding: var(--spacing-xxl) 0;
+      }
+
+      /* Cards & UI Elements */
+      .card {
+        background-color: var(--color-white);
+        box-shadow: var(--shadow-soft);
+        padding: var(--spacing-md);
+        border-radius: var(--radius-md);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .card:hover {
+        box-shadow: var(--shadow-hover);
+        transform: translateY(-2px);
+      }
+
+      /* Buttons - minimal and elegant */
+      .btn {
+        display: inline-block;
+        padding: 0.9rem 2.5rem;
+        background-color: var(--color-primary);
+        color: var(--color-white);
+        border: none;
+        border-radius: var(--radius-sm);
+        font-family: var(--font-primary);
+        font-size: 0.85rem;
+        font-weight: 400;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+      }
+
+      .btn:hover {
+        background-color: var(--color-dark);
+        transform: translateY(-1px);
+        box-shadow: var(--shadow-medium);
+      }
+
+      .btn-outline {
+        background-color: transparent;
+        border: 1px solid var(--color-primary);
+        color: var(--color-primary);
+      }
+
+      .btn-outline:hover {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+      }
+
+      .btn-link {
+        color: var(--color-dark);
+        border-bottom: 1px solid var(--color-accent);
+        padding-bottom: 0.25rem;
+        font-size: 0.9rem;
+        font-weight: 300;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        letter-spacing: 0.05em;
+      }
+
+      .btn-link:hover {
+        color: var(--color-primary);
+        border-bottom-color: var(--color-primary);
+      }
+
+      /* Pink accents - subtle and refined */
+      .accent-line {
+        position: relative;
+      }
+
+      .accent-line::after {
+        content: "";
+        position: absolute;
+        width: 4rem;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--color-accent),
+          transparent
+        );
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -12px;
+      }
+
+      /* Text utilities */
+      .text-center {
+        text-align: center;
+      }
+
+      .text-price {
+        color: var(--color-primary);
+        font-family: var(--font-display);
+        font-size: 1.4rem;
+        font-weight: 400;
+      }
+
+      /* Custom spacing */
+      .mb-1 {
+        margin-bottom: var(--spacing-xs);
+      }
+      .mb-2 {
+        margin-bottom: var(--spacing-sm);
+      }
+      .mb-3 {
+        margin-bottom: var(--spacing-md);
+      }
+      .mb-4 {
+        margin-bottom: var(--spacing-lg);
+      }
+      .mb-5 {
+        margin-bottom: var(--spacing-xl);
+      }
+
+      /* Service cards specific styles */
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: var(--spacing-md);
+        margin-top: var(--spacing-lg);
+      }
+
+      .service-card {
+        background-color: var(--color-white);
+        box-shadow: var(--shadow-soft);
+        padding: var(--spacing-md);
+        border-radius: var(--radius-md);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .service-card:hover {
+        box-shadow: var(--shadow-hover);
+        transform: translateY(-3px);
+      }
+
+      .service-card h3 {
+        margin-bottom: 1rem;
+        color: var(--color-dark);
+      }
+
+      .service-card p {
+        font-size: 0.95rem;
+      }
+
+      .service-card-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: var(--spacing-md);
+        padding-top: var(--spacing-sm);
+        border-top: 1px solid var(--color-secondary);
+      }
+
+      /* Custom scrollbar - minimal */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--color-light);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--color-accent);
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--color-primary);
+      }
+
+      /* Loading screen styling */
+      #root:empty {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: var(--color-light);
+      }
+
+      #root:empty:before {
+        content: "N I K I ' S   A T E L I E R";
+        font-family: var(--font-primary);
+        font-size: 1.1rem;
+        font-weight: 300;
+        letter-spacing: 0.3em;
+        color: var(--color-primary);
+        animation: fadeInOut 2s infinite ease-in-out;
+      }
+
+      @keyframes fadeInOut {
+        0%,
+        100% {
+          opacity: 0.3;
+        }
+        50% {
+          opacity: 1;
+        }
+      }
+
+      /* Media queries for responsive design */
+      @media (max-width: 1024px) {
+        section {
+          padding: var(--spacing-xl) 0;
+        }
+      }
+
+      @media (max-width: 768px) {
+        body {
+          font-size: 16px;
+        }
+
+        h1 {
+          font-size: 2.8rem;
+        }
+        h2 {
+          font-size: 2.2rem;
+        }
+        h3 {
+          font-size: 1.6rem;
+        }
+
+        section {
+          padding: var(--spacing-lg) 0;
+        }
+
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .btn {
+          padding: 0.8rem 2rem;
+          font-size: 0.8rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        h1 {
+          font-size: 2.2rem;
+        }
+        h2 {
+          font-size: 1.9rem;
+        }
+      }
+    </style>
+
+    <title>Niki's Atelier | Luxury Nail Salon</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
+</html>

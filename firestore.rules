@@ -1,0 +1,20 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Allow public to create bookings
+    match /bookings/{bookingId} {
+      allow create: if true;
+      // Only allow reading your own booking with the correct email
+      allow read: if request.auth != null && 
+                   resource.data.customer.email == request.auth.token.email;
+      // No updates or deletes from client side
+      allow update, delete: if false;
+    }
+    
+    // Admin collection for authorized access only
+    match /admin/{document=**} {
+      allow read, write: if request.auth != null && 
+                           request.auth.token.admin == true;
+    }
+  }
+}
